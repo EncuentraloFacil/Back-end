@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/productos")
+@CrossOrigin("http://localhost:4200/")
 public class ProductoController {
 
     @Autowired
@@ -45,10 +46,10 @@ public class ProductoController {
 
         if (listaProductos.isEmpty()) {
 
-            listaProductos= pS.buscarVendedor(producto.getIdVendedor().getNomVendedor());
+            listaProductos= pS.buscarVendedor(producto.getVendedor().getNomVendedor());
             listaProductos= pS.buscarMarca(producto.getMarcaProducto());
-            listaProductos= pS.buscarCategoria(producto.getIdCategoria().getNomCategoria());
-            listaProductos= pS.buscarNotificacion(producto.getIdNotificacion().getFechaCaducidad());
+            listaProductos= pS.buscarCategoria(producto.getCategoria().getNomCategoria());
+            listaProductos= pS.buscarNotificacion(producto.getNotificacion().getFechaCaducidad());
         }
         return listaProductos;
 

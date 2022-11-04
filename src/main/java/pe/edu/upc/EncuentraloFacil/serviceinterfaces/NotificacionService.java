@@ -4,6 +4,7 @@ import pe.edu.upc.EncuentraloFacil.entities.Notificacion;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface NotificacionService {
 
@@ -11,5 +12,8 @@ public interface NotificacionService {
     List<Notificacion> list();
     public void delete( int id );
     List<Notificacion> buscar(Date fechaCaducidad);
+
+    Optional<Notificacion> listarId(int idNotificacion);
+
 
 }

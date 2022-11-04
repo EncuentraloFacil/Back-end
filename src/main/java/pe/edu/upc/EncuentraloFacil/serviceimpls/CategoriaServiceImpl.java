@@ -7,6 +7,7 @@ import pe.edu.upc.EncuentraloFacil.repositories.CategoriaRepository;
 import pe.edu.upc.EncuentraloFacil.serviceinterfaces.CategoriaService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
@@ -32,4 +33,13 @@ public class CategoriaServiceImpl implements CategoriaService {
     public List<Categoria> search(String nomCategoria) {
         return cR.buscarCategoria(nomCategoria);
     }
+
+    @Override
+    public Optional<Categoria> listarId(int idCategoria) {
+        return cR.findById(idCategoria);
+    }
 }
+
+
+
+

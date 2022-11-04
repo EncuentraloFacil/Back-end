@@ -11,51 +11,30 @@ public class Producto {
     @Column(name = "desProducto",length = 45,nullable = false)
     private String desProducto;
     @Column(name = "MarcaProducto",length = 45,nullable = false)
-    private String MarcaProducto;
+    private String marcaProducto;
+
     @ManyToOne
-    @JoinColumn(name = "id_vendedor_id", nullable = false)
-    private Vendedor idVendedor;
+    @JoinColumn(name = "vendedor_id")
+    private Vendedor vendedor;
+
     @ManyToOne
-    @JoinColumn(name = "id_categoria_id", nullable = false)
-    private Categoria idCategoria;
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
     @ManyToOne
-    @JoinColumn(name = "id_notificacion_id", nullable = false)
-    private Notificacion idNotificacion;
-
-    public Notificacion getIdNotificacion() {
-        return idNotificacion;
-    }
-
-    public void setIdNotificacion(Notificacion idNotificacion) {
-        this.idNotificacion = idNotificacion;
-    }
-
-    public Categoria getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(Categoria idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
-    public Vendedor getIdVendedor() {
-        return idVendedor;
-    }
-
-    public void setIdVendedor(Vendedor idVendedor) {
-        this.idVendedor = idVendedor;
-    }
+    @JoinColumn(name = "notificacion_id")
+    private Notificacion notificacion;
 
     public Producto() {
     }
 
-    public Producto(int id, String desProducto, String marcaProducto, Vendedor idVendedor, Categoria idCategoria, Notificacion idNotificacion) {
+    public Producto(int id, String desProducto, String marcaProducto, Vendedor vendedor, Categoria categoria, Notificacion notificacion) {
         this.id = id;
         this.desProducto = desProducto;
-        MarcaProducto = marcaProducto;
-        this.idVendedor = idVendedor;
-        this.idCategoria = idCategoria;
-        this.idNotificacion = idNotificacion;
+        this.marcaProducto = marcaProducto;
+        this.vendedor = vendedor;
+        this.categoria = categoria;
+        this.notificacion = notificacion;
     }
 
     public int getId() {
@@ -75,10 +54,36 @@ public class Producto {
     }
 
     public String getMarcaProducto() {
-        return MarcaProducto;
+        return marcaProducto;
     }
 
     public void setMarcaProducto(String marcaProducto) {
-        MarcaProducto = marcaProducto;
+        this.marcaProducto = marcaProducto;
     }
+
+    public Notificacion getNotificacion() {
+        return notificacion;
+    }
+
+    public void setNotificacion(Notificacion notificacion) {
+        this.notificacion = notificacion;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+
+
 }
