@@ -18,27 +18,20 @@ public class Donacion {
     @Column(name = "direccion",length = 45,nullable = false)
     private String direccion;
 
+
     @ManyToOne
-    @JoinColumn(name = "id_producto_id")
-    private Producto idProducto;
-
-    public Producto getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(Producto idProducto) {
-        this.idProducto = idProducto;
-    }
+    @JoinColumn(name = "producto_id")
+    private Producto producto;
 
     public Donacion() {
     }
 
-    public Donacion(int id, String nomDonar, int cantidad, String direccion, Producto idProducto) {
+    public Donacion(int id, String nomDonar, int cantidad, String direccion, Producto producto) {
         this.id = id;
         this.nomDonar = nomDonar;
         this.cantidad = cantidad;
         this.direccion = direccion;
-        this.idProducto = idProducto;
+        this.producto = producto;
     }
 
     public int getId() {
@@ -72,4 +65,13 @@ public class Donacion {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
 }

@@ -50,8 +50,8 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public List<Producto> buscarMarca(String MarcaProducto) {
-        return pR.buscarMarca(MarcaProducto);
+    public List<Producto> buscarMarca(String marcaProducto) {
+        return pR.buscarMarca(marcaProducto);
     }
 
     @Override

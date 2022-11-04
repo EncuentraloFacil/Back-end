@@ -14,7 +14,7 @@ public interface DonacionRepository extends JpaRepository<Donacion,Integer> {
     @Query("from Donacion d where d.nomDonar like %:nomDonar")
     List<Donacion> buscarDonacion(@Param("nomDonar") String nomDonar);
 
-    @Query("from Donacion d where d.idProducto.desProducto like %:desProducto")
+    @Query("from Donacion d where d.producto.desProducto like %:desProducto")
     List<Donacion> buscarProducto(@Param("desProducto") String desProducto);
 
     @Query("from Donacion d where d.direccion like %:direccion")

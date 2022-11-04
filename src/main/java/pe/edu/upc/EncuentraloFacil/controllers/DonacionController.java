@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/donacion")
+@CrossOrigin("http://localhost:4200/")
 public class DonacionController {
 
     @Autowired
@@ -46,7 +47,7 @@ public class DonacionController {
 
         if (listaDonacion.isEmpty()) {
 
-            listaDonacion = dS.buscarProducto(donacion.getIdProducto().getDesProducto());
+            listaDonacion = dS.buscarProducto(donacion.getProducto().getDesProducto());
             listaDonacion = dS.buscarDireccion(donacion.getDireccion());
 
 
