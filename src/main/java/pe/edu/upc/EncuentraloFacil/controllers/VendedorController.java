@@ -1,6 +1,7 @@
 package pe.edu.upc.EncuentraloFacil.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import pe.edu.upc.EncuentraloFacil.serviceinterfaces.VendedorService;
 
 @RestController
 @RequestMapping("/vendedor")
+@CrossOrigin("http://localhost:4200/")
 public class VendedorController {
 	
 	@Autowired
@@ -39,4 +41,10 @@ public class VendedorController {
 	public List<Vendedor> buscar( @RequestBody Vendedor v){
 		return vS.search(v.getNomVendedor());
 	}
+
+	@GetMapping("/{id}")
+	public Optional<Vendedor> listarId(@PathVariable("id") Integer id) {
+		return vS.listarId(id);
+	}
+
 }

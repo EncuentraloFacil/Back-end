@@ -7,6 +7,7 @@ import pe.edu.upc.EncuentraloFacil.repositories.VendedorRepository;
 import pe.edu.upc.EncuentraloFacil.serviceinterfaces.VendedorService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VendedorServiceImpl implements VendedorService {
@@ -32,5 +33,10 @@ public class VendedorServiceImpl implements VendedorService {
     @Override
     public List<Vendedor> search(String nomVendedor) {
         return vR.buscarVendedor(nomVendedor);
+    }
+
+    @Override
+    public Optional<Vendedor> listarId(int idVendedor) {
+        return vR.findById(idVendedor);
     }
 }

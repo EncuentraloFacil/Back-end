@@ -8,6 +8,7 @@ import pe.edu.upc.EncuentraloFacil.serviceinterfaces.NotificacionService;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NotificacionServiceImpl implements NotificacionService {
@@ -33,6 +34,11 @@ public class NotificacionServiceImpl implements NotificacionService {
     @Override
     public List<Notificacion> buscar(Date fechaCaducidad) {
         return nR.buscarNotificacion(fechaCaducidad);
+    }
+
+    @Override
+    public Optional<Notificacion> listarId(int idNotificacion) {
+        return nR.findById(idNotificacion);
     }
 
 

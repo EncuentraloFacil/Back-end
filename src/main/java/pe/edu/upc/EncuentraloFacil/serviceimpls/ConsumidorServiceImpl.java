@@ -7,6 +7,7 @@ import pe.edu.upc.EncuentraloFacil.repositories.ConsumidorRepository;
 import pe.edu.upc.EncuentraloFacil.serviceinterfaces.ConsumidorService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ConsumidorServiceImpl implements ConsumidorService {
@@ -32,5 +33,10 @@ public class ConsumidorServiceImpl implements ConsumidorService {
     @Override
     public List<Consumidor> search(String nomConsumidor) {
         return cR.buscarConsumidor(nomConsumidor);
+    }
+
+    @Override
+    public Optional<Consumidor> listarId(int idConsumidor) {
+        return cR.findById(idConsumidor);
     }
 }

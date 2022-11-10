@@ -6,9 +6,11 @@ import pe.edu.upc.EncuentraloFacil.entities.Categoria;
 import pe.edu.upc.EncuentraloFacil.serviceinterfaces.CategoriaService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/categoria")
+@CrossOrigin("http://localhost:4200/")
 public class CategoriaController {
 
     @Autowired
@@ -41,6 +43,13 @@ public class CategoriaController {
         return cS.search(categoria.getNomCategoria());
     }
 
+    @GetMapping("/{id}")
+    public Optional<Categoria> listarId(@PathVariable("id") Integer id) {
+        return cS.listarId(id);
+    }
 }
+
+
+
 
 
