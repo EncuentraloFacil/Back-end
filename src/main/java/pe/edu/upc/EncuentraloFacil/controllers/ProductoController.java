@@ -6,6 +6,7 @@ import pe.edu.upc.EncuentraloFacil.entities.Producto;
 import pe.edu.upc.EncuentraloFacil.serviceinterfaces.ProductoService;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,17 +40,17 @@ public class ProductoController {
     }
 
     @PostMapping("/buscar")
-    public List<Producto> buscar(@RequestBody Producto producto) throws ParseException {
+    public List<Producto> buscar(@RequestBody String producto , Date fecha) throws ParseException {
 
         List<Producto> listaProductos;
-       listaProductos = pS.buscarProducto(producto.getDesProducto());
+       listaProductos = pS.buscarProducto(producto);
 
         if (listaProductos.isEmpty()) {
 
-            listaProductos= pS.buscarVendedor(producto.getVendedor().getNomVendedor());
-            listaProductos= pS.buscarMarca(producto.getMarcaProducto());
-            listaProductos= pS.buscarCategoria(producto.getCategoria().getNomCategoria());
-            listaProductos= pS.buscarNotificacion(producto.getNotificacion().getFechaCaducidad());
+            listaProductos= pS.buscarVendedor(producto);
+            listaProductos= pS.buscarMarca(producto);
+            listaProductos= pS.buscarCategoria(producto);
+            listaProductos= pS.buscarNotificacion(fecha);
         }
         return listaProductos;
 

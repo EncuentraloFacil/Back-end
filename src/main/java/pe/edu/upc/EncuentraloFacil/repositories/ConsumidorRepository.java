@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface ConsumidorRepository extends JpaRepository<Consumidor,Integer> {
 
-    @Query("from Consumidor c where  c.nomConsumidor like %:nomConsumidor")
+    @Query("from Consumidor c where  c.nomConsumidor like %:nomConsumidor%")
     List<Consumidor> buscarConsumidor(@Param("nomConsumidor") String nomConsumidor);
 }
