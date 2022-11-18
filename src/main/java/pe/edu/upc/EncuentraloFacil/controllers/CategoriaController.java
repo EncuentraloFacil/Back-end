@@ -39,8 +39,8 @@ public class CategoriaController {
     }
 
     @PostMapping("/buscar")
-    public List<Categoria> buscar( @RequestBody Categoria categoria){
-        return cS.search(categoria.getNomCategoria());
+    public List<Categoria> buscar( @RequestBody String categoria){
+        return cS.search(categoria);
     }
 
     @GetMapping("/{id}")

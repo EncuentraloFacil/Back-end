@@ -13,16 +13,16 @@ import java.util.List;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto,Integer> {
 
-    @Query("from Producto p where p.desProducto like %:desProducto")
+    @Query("from Producto p where p.desProducto like %:desProducto%")
     List<Producto> buscarProducto (@Param("desProducto") String desProducto);
 
-    @Query("from Producto p where p.marcaProducto like %:marcaProducto")
+    @Query("from Producto p where p.marcaProducto like %:marcaProducto%")
     List<Producto> buscarMarca(@Param("marcaProducto") String marcaProducto);
 
-    @Query("from Producto p where p.vendedor.nomVendedor like %:nomVendedor")
+    @Query("from Producto p where p.vendedor.nomVendedor like %:nomVendedor%")
     List<Producto> buscarVendedor(@Param("nomVendedor") String nomVendedor);
 
-    @Query("from Producto p where p.categoria.nomCategoria like %:nomCategoria")
+    @Query("from Producto p where p.categoria.nomCategoria like %:nomCategoria%")
     List<Producto> buscarCategoria (@Param("nomCategoria") String nomCategoria);
 
     @Query("from Producto p where p.notificacion.fechaCaducidad =:fechaCaducidad" )

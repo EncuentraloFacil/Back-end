@@ -12,7 +12,10 @@ import java.util.List;
 @Repository
 public interface NotificacionRepository extends JpaRepository<Notificacion,Integer> {
 
-    //Date fechaCaducidad;
+
     @Query("from Notificacion n where n.fechaCaducidad =:fechaCaducidad" )
-    List<Notificacion> buscarNotificacion(@Param("fechaCaducidad") Date fechaCaducidad);
+    List<Notificacion> buscarNotificacion(@Param("fechaCaducidad") String fechaCaducidad);
+
+    @Query(value="select * from notificacion f where f.fecha_caducidad between '2022-11-01' and '2022-11-30'",nativeQuery = true)
+    List<Notificacion> buscarFecha();
 }

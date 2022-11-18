@@ -1,5 +1,6 @@
 package pe.edu.upc.EncuentraloFacil.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,8 +40,17 @@ public class ConsumidorController {
 	}
 
 	@PostMapping("/buscar")
-	public List<Consumidor> buscar( @RequestBody Consumidor consumidor){
-		return cS.search(consumidor.getNomConsumidor());
+	public List<Consumidor> buscar( @RequestBody String consumidor) {
+		List<Consumidor> listaconsumidor= new ArrayList<>();
+		if(consumidor.length()>0) {
+			listaconsumidor=cS.search(consumidor);
+
+
+		}else{
+			listaconsumidor= cS.list();
+		}
+		return listaconsumidor;
+
 	}
 
 	@GetMapping("/{id}")

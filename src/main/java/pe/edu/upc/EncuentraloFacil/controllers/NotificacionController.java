@@ -1,5 +1,6 @@
 package pe.edu.upc.EncuentraloFacil.controllers;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,8 +36,8 @@ public class NotificacionController {
 		nS.insert(notificacion);
 	}
 	@PostMapping("/buscar")
-	public List<Notificacion> buscar( @RequestBody Notificacion notificacion){
-		return nS.buscar(notificacion.getFechaCaducidad());
+	public List<Notificacion> buscar( @RequestBody String fecha){
+		return nS.buscar(fecha);
 	}
 
 	@GetMapping("/{id}")
@@ -44,5 +45,8 @@ public class NotificacionController {
 		return nS.listarId(id);
 	}
 
-
+	@GetMapping("/buscarFecha")
+	public List<Notificacion> buscarFecha(){
+		return nS.buscarFecha();
+	}
 }

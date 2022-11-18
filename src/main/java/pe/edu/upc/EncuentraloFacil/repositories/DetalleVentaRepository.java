@@ -15,6 +15,6 @@ public interface DetalleVentaRepository extends JpaRepository<DetalleVenta,Integ
     @Query("from DetalleVenta dv where dv.id=:id")
     List<DetalleVenta> buscarDetalleV(@Param("id") int id);
 
-    @Query("from DetalleVenta dv where dv.ofer.desOferta like %:desOferta")
+    @Query("from DetalleVenta dv where dv.ofer.desOferta like %:desOferta%")
     List<DetalleVenta> buscarOfertas(@Param("desOferta") String desOferta);
 }

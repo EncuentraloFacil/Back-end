@@ -11,14 +11,18 @@ import java.util.List;
 @Repository
 public interface DonacionRepository extends JpaRepository<Donacion,Integer> {
 
-    @Query("from Donacion d where d.nomDonar like %:nomDonar")
+    @Query("from Donacion d where d.nomDonar like %:nomDonar%")
     List<Donacion> buscarDonacion(@Param("nomDonar") String nomDonar);
 
-    @Query("from Donacion d where d.producto.desProducto like %:desProducto")
+    @Query("from Donacion d where d.producto.desProducto like %:desProducto%")
     List<Donacion> buscarProducto(@Param("desProducto") String desProducto);
 
-    @Query("from Donacion d where d.direccion like %:direccion")
+    @Query("from Donacion d where d.direccion like %:direccion%")
     List<Donacion> buscarDireccion(@Param("direccion") String direccion);
+
+
+    @Query(value="select p.marca_producto,count(d.producto_id) from donacion d inner join producto p on d.producto_id=p.id group by p.marca_producto",nativeQuery = true)
+    List<String[]> buscarMarcaProducto();
 
 
 

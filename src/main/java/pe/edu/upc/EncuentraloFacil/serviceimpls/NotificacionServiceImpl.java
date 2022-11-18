@@ -32,13 +32,18 @@ public class NotificacionServiceImpl implements NotificacionService {
     }
 
     @Override
-    public List<Notificacion> buscar(Date fechaCaducidad) {
+    public List<Notificacion> buscar(String fechaCaducidad) {
         return nR.buscarNotificacion(fechaCaducidad);
     }
 
     @Override
     public Optional<Notificacion> listarId(int idNotificacion) {
         return nR.findById(idNotificacion);
+    }
+
+    @Override
+    public List<Notificacion> buscarFecha() {
+        return nR.buscarFecha();
     }
 
 

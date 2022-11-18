@@ -3,6 +3,7 @@ package pe.edu.upc.EncuentraloFacil.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.EncuentraloFacil.entities.Donacion;
+import pe.edu.upc.EncuentraloFacil.entities.RespuestaOne;
 import pe.edu.upc.EncuentraloFacil.serviceinterfaces.DonacionService;
 
 
@@ -40,25 +41,28 @@ public class DonacionController {
     }
 
     @PostMapping("/buscar")
-    public List<Donacion> buscar(@RequestBody Donacion donacion) throws ParseException {
+    public List<Donacion> buscar(@RequestBody String dona) throws ParseException {
 
         List<Donacion> listaDonacion;
-        listaDonacion = dS.buscarDonacion(donacion.getNomDonar());
+        listaDonacion = dS.buscarDonacion(dona);
 
         if (listaDonacion.isEmpty()) {
 
-            listaDonacion = dS.buscarProducto(donacion.getProducto().getDesProducto());
-            listaDonacion = dS.buscarDireccion(donacion.getDireccion());
+            listaDonacion = dS.buscarProducto(dona);
+            listaDonacion = dS.buscarDireccion(dona);
 
 
         }
         return listaDonacion;
     }
-
-
         @GetMapping("/{id}")
         public Optional<Donacion>listaId(@PathVariable("id") Integer id){
             return dS.listaId(id);
+        }
+
+        @GetMapping("/marcas")
+        public List<RespuestaOne> buscarMarcaProducto(){
+        return dS.buscarMarcaProducto();
         }
 
 }
