@@ -40,18 +40,10 @@ public class FacturaController {
     }
 
     @PostMapping("/buscar")
-    public List<Factura> buscar(@RequestBody Factura factura) throws ParseException {
 
-        List<Factura> listaFactura;
-        listaFactura = fS.buscarFactura(factura.getId());
-
-        if (listaFactura.isEmpty()) {
-
-            listaFactura= fS.buscarConsumidor(factura.getConsumidor().getNomConsumidor());
-
-        }
-        return listaFactura;
-
+    public List<Factura> buscar(@RequestBody String factura) {
+           return fS.buscarConsumidor(factura);
+  
     }
     @GetMapping("/{id}")
     public Optional<Factura> listarId(@PathVariable("id") Integer id) {

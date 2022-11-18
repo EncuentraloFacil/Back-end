@@ -12,13 +12,10 @@ import java.util.List;
 @Repository
 public interface OfertaRepository extends JpaRepository<Oferta,Integer> {
 
-    @Query("from Oferta o where o.desOferta like %:desOferta")
+    @Query("from Oferta o where o.desOferta like %:desOferta%")
     List<Oferta> buscarOferta (@Param("desOferta") String desOferta);
 
-    @Query("from Oferta o where o.producto.desProducto like %:desProducto")
+    @Query("from Oferta o where o.producto.desProducto like %:desProducto%")
     List<Oferta> buscarProducto (@Param("desProducto") String desProducto);
 
-    @Query("from Oferta o where o.precioOferta=:precioOferta ")
-    List<Oferta> buscarPrecio (@Param("precioOferta ") Double precioOferta );
 
-}

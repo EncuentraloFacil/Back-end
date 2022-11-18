@@ -54,10 +54,6 @@ public class OfertaServiceImpl implements OfertaService {
         return oR.buscarProducto(desProducto);
     }
 
-    @Override
-    public List<Oferta> buscarPrecio(Double precioOferta) {
-        return oR.buscarPrecio(precioOferta);
-    }
 
 
 }

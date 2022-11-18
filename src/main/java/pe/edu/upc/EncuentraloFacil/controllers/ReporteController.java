@@ -41,16 +41,18 @@ public class ReporteController {
     }
 
     @PostMapping("/buscar")
-    public List<Reporte> buscar(@RequestBody Reporte reporte) throws ParseException {
+
+    public List<Reporte> buscar(@RequestBody String report) throws ParseException {
 
         List<Reporte> listaReporte;
-        listaReporte = rS.buscarReporte(reporte.getDesReporte());
+        listaReporte = rS.buscarReporte(report);
 
         if (listaReporte.isEmpty()) {
 
-            listaReporte= rS.buscarConsumidor(reporte.getConsumidor().getNomConsumidor());
-            listaReporte=rS.buscarVendedor(reporte.getVendedor().getNomVendedor());
+            listaReporte= rS.buscarConsumidor(report);
+            listaReporte=rS.buscarVendedor(report);
 
+    
         }
         return listaReporte;
 

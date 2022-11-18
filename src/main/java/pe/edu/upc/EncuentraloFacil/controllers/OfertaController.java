@@ -38,15 +38,14 @@ public class OfertaController {
     }
 
     @PostMapping("/buscar")
-    public List<Oferta> buscar(@RequestBody Oferta oferta) throws ParseException {
+    public List<Oferta> buscar(@RequestBody String ofert) throws ParseException {
 
         List<Oferta> listaOfertas;
-        listaOfertas = oS.buscarOferta(oferta.getDesOferta());
+        listaOfertas = oS.buscarOferta(ofert);
 
         if (listaOfertas.isEmpty()) {
 
-            listaOfertas= oS.buscarProducto(oferta.getProducto().getDesProducto());
-            listaOfertas= oS.buscarPrecio(oferta.getPrecioOferta());
+            listaOfertas= oS.buscarProducto(ofert);
 
         }
         return listaOfertas;

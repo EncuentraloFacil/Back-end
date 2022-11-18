@@ -1,5 +1,6 @@
 package pe.edu.upc.EncuentraloFacil.serviceinterfaces;
 
+import pe.edu.upc.EncuentraloFacil.entities.Respuesta;
 import pe.edu.upc.EncuentraloFacil.entities.Vendedor;
 
 import java.util.List;
@@ -12,6 +13,10 @@ public interface VendedorService {
     List<Vendedor> search(String nomVendedor);
 
     Optional<Vendedor> listarId(int idVendedor);
+
+    List<Vendedor> buscarEdad();
+
+    List<Respuesta> buscarCantidadProducto();
 
 
 }

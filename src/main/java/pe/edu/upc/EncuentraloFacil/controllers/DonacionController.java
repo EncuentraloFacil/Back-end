@@ -40,15 +40,15 @@ public class DonacionController {
     }
 
     @PostMapping("/buscar")
-    public List<Donacion> buscar(@RequestBody Donacion donacion) throws ParseException {
+    public List<Donacion> buscar(@RequestBody String dona) throws ParseException {
 
         List<Donacion> listaDonacion;
-        listaDonacion = dS.buscarDonacion(donacion.getNomDonar());
+        listaDonacion = dS.buscarDonacion(dona);
 
         if (listaDonacion.isEmpty()) {
 
-            listaDonacion = dS.buscarProducto(donacion.getProducto().getDesProducto());
-            listaDonacion = dS.buscarDireccion(donacion.getDireccion());
+            listaDonacion = dS.buscarProducto(dona);
+            listaDonacion = dS.buscarDireccion(dona);
 
 
         }

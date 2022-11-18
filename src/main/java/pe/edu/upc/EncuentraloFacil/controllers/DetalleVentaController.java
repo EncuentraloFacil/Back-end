@@ -39,14 +39,14 @@ public class DetalleVentaController {
     }
 
     @PostMapping("/buscar")
-    public List<DetalleVenta> buscar(@RequestBody DetalleVenta detalleVenta) throws ParseException {
+    public List<DetalleVenta> buscar(@RequestBody String venta, int id) throws ParseException {
 
         List<DetalleVenta> listaVenta;
-        listaVenta = dvS.buscarDetalleVenta(detalleVenta.getId());
+        listaVenta = dvS.buscarDetalleVenta(id);
 
         if (listaVenta.isEmpty()) {
 
-            listaVenta= dvS.buscarOfertas(detalleVenta.getOfer().getDesOferta());
+            listaVenta= dvS.buscarOfertas(venta);
 
         }
         return listaVenta;

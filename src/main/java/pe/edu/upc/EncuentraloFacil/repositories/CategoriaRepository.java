@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria,Integer> {
-    @Query("from Categoria c where  c.nomCategoria like %:nomCategoria")
+    @Query("from Categoria c where  c.nomCategoria like %:nomCategoria%")
     List<Categoria> buscarCategoria(@Param("nomCategoria") String nomCategoria);
 
 }

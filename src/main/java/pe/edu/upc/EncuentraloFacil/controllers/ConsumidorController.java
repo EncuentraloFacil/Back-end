@@ -39,8 +39,8 @@ public class ConsumidorController {
 	}
 
 	@PostMapping("/buscar")
-	public List<Consumidor> buscar( @RequestBody Consumidor consumidor){
-		return cS.search(consumidor.getNomConsumidor());
+	public List<Consumidor> buscar( @RequestBody String consumidor){
+		return cS.search(consumidor);
 	}
 
 	@GetMapping("/{id}")
