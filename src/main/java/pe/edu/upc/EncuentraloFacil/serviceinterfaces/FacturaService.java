@@ -18,7 +18,6 @@ public interface FacturaService {
     List<Factura> listar();
 
 
-
     List<Factura> buscarConsumidor(String nomConsumidor);
 
 

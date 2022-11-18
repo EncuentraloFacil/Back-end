@@ -45,6 +45,7 @@ public class FacturaServiceImpl implements FacturaService {
     }
 
 
+
     @Override
     public List<Factura> buscarConsumidor(String nomConsumidor) {
         return fR.buscarConsumidor(nomConsumidor);

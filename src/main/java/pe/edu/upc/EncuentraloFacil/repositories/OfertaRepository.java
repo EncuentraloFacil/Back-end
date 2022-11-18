@@ -19,5 +19,3 @@ public interface OfertaRepository extends JpaRepository<Oferta,Integer> {
     List<Oferta> buscarProducto (@Param("desProducto") String desProducto);
 
 
-
-}
