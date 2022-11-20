@@ -36,7 +36,9 @@ public class NotificacionController {
 		nS.insert(notificacion);
 	}
 	@PostMapping("/buscar")
-	public List<Notificacion> buscar( @RequestBody String fecha){
+
+	public List<Notificacion> buscar( @RequestBody Date fecha){
+
 		return nS.buscar(fecha);
 	}
 

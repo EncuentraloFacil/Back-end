@@ -40,9 +40,11 @@ public class FacturaController {
     }
 
     @PostMapping("/buscar")
+
     public List<Factura> buscar(@RequestBody String factura) {
 
            return fS.buscarConsumidor(factura);
+
 
     }
     @GetMapping("/{id}")

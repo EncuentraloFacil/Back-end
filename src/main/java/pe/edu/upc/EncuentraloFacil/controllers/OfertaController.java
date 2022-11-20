@@ -47,7 +47,6 @@ public class OfertaController {
 
             listaOfertas= oS.buscarProducto(ofert);
 
-
         }
         return listaOfertas;
 

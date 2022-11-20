@@ -50,7 +50,6 @@ public class ReporteController {
 
             listaReporte= rS.buscarConsumidor(report);
             listaReporte=rS.buscarVendedor(report);
-
         }
         return listaReporte;
 

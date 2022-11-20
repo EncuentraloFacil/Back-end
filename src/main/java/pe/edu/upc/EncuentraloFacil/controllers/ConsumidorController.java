@@ -40,6 +40,7 @@ public class ConsumidorController {
 	}
 
 	@PostMapping("/buscar")
+
 	public List<Consumidor> buscar( @RequestBody String consumidor) {
 		List<Consumidor> listaconsumidor= new ArrayList<>();
 		if(consumidor.length()>0) {
@@ -51,6 +52,7 @@ public class ConsumidorController {
 		}
 		return listaconsumidor;
 
+	
 	}
 
 	@GetMapping("/{id}")
