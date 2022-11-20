@@ -3,6 +3,7 @@ package pe.edu.upc.EncuentraloFacil.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.EncuentraloFacil.entities.Donacion;
+import pe.edu.upc.EncuentraloFacil.entities.RespuestaOne;
 import pe.edu.upc.EncuentraloFacil.serviceinterfaces.DonacionService;
 
 
@@ -54,11 +55,14 @@ public class DonacionController {
         }
         return listaDonacion;
     }
-
-
         @GetMapping("/{id}")
         public Optional<Donacion>listaId(@PathVariable("id") Integer id){
             return dS.listaId(id);
+        }
+
+        @GetMapping("/marcas")
+        public List<RespuestaOne> buscarMarcaProducto(){
+        return dS.buscarMarcaProducto();
         }
 
 }

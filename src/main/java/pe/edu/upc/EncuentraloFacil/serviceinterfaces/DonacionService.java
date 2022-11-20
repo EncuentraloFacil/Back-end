@@ -3,6 +3,7 @@ package pe.edu.upc.EncuentraloFacil.serviceinterfaces;
 
 
 import pe.edu.upc.EncuentraloFacil.entities.Donacion;
+import pe.edu.upc.EncuentraloFacil.entities.RespuestaOne;
 
 
 import java.util.List;
@@ -22,5 +23,7 @@ public interface DonacionService {
     List<Donacion> buscarDonacion(String nomDonar);
 
     List<Donacion> buscarDireccion(String direccion);
+
+    List<RespuestaOne> buscarMarcaProducto();
 
 }

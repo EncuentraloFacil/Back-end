@@ -21,5 +21,9 @@ public interface DonacionRepository extends JpaRepository<Donacion,Integer> {
     List<Donacion> buscarDireccion(@Param("direccion") String direccion);
 
 
+    @Query(value="select p.marca_producto,count(d.producto_id) from donacion d inner join producto p on d.producto_id=p.id group by p.marca_producto",nativeQuery = true)
+    List<String[]> buscarMarcaProducto();
+
+
 
 }

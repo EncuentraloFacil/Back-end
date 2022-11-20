@@ -14,7 +14,6 @@ import java.util.List;
 @Repository
 public interface FacturaRepository extends JpaRepository<Factura,Integer> {
 
-
     @Query("from Factura f where f.consumidor.nomConsumidor like %:nomConsumidor%")
     List<Factura> buscarConsumidor (@Param("nomConsumidor") String nomConsumidor);
 }

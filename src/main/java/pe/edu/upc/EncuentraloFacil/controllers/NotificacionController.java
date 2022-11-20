@@ -36,7 +36,9 @@ public class NotificacionController {
 		nS.insert(notificacion);
 	}
 	@PostMapping("/buscar")
+
 	public List<Notificacion> buscar( @RequestBody Date fecha){
+
 		return nS.buscar(fecha);
 	}
 
@@ -45,5 +47,8 @@ public class NotificacionController {
 		return nS.listarId(id);
 	}
 
-
+	@GetMapping("/buscarFecha")
+	public List<Notificacion> buscarFecha(){
+		return nS.buscarFecha();
+	}
 }

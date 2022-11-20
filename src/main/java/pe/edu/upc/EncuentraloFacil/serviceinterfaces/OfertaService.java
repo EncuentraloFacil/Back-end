@@ -19,6 +19,4 @@ public interface OfertaService {
     List<Oferta> buscarOferta(String desOferta);
 
     List<Oferta> buscarProducto(String desProducto);
-
-
 }

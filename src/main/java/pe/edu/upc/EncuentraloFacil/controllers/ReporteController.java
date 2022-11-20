@@ -41,7 +41,6 @@ public class ReporteController {
     }
 
     @PostMapping("/buscar")
-
     public List<Reporte> buscar(@RequestBody String report) throws ParseException {
 
         List<Reporte> listaReporte;
@@ -51,8 +50,6 @@ public class ReporteController {
 
             listaReporte= rS.buscarConsumidor(report);
             listaReporte=rS.buscarVendedor(report);
-
-    
         }
         return listaReporte;
 
